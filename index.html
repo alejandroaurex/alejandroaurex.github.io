@@ -3,52 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Hats Club - Confirmar Orden</title>
-    <!-- Carga de Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de la fuente Geist (del ejemplo de Aurex) --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Star Hats Club - Checkout Oficial</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Geist -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Carga de Lucide Icons movida al final del body --><style>
+    
+    <style>
         /* ===============================================
-           WORLD-CLASS PREMIUM DESIGN SYSTEM
-           Inspirado en: Aurex, Apple, Stripe, Vercel
+           STAR HATS PREMIUM DESIGN SYSTEM V2
            =============================================== */
         
-        /* Animación de entrada para la página */
+        /* Animaciones Base */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Animación de patrón de puntos flotantes */
         @keyframes float {
             0%, 100% { transform: translateY(0px) translateX(0px); }
             33% { transform: translateY(-8px) translateX(4px); }
             66% { transform: translateY(-4px) translateX(-4px); }
         }
 
-        /* Animación de pulso dorado sutil */
         @keyframes goldPulse {
             0%, 100% { opacity: 0.15; }
             50% { opacity: 0.25; }
         }
 
-        /* Animación de shimmer (brillo que recorre) */
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
-        }
-
-        /* Animación de glow pulsante (ESTA YA NO SE USA, pero la dejo por si acaso) */
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
-            50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.35); }
         }
 
         body {
@@ -57,13 +44,11 @@
             color: #f3f4f6;
             animation: fadeIn 1s ease-out;
             overflow-x: hidden;
-            /* Suavidad de scroll premium */
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Patrón de puntos dorados con animación */
+        /* Background Premium */
         body::before {
             content: '';
             position: fixed;
@@ -76,23 +61,7 @@
             animation: float 12s ease-in-out infinite, goldPulse 8s ease-in-out infinite;
         }
 
-        /* Gradiente radial de fondo para profundidad - ELIMINADO EN ESTA VERSIÓN
-        body::after {
-            content: '';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            animation: glowPulse 6s ease-in-out infinite;
-        }
-        */
-
-        /* Contenedor del formulario - Premium Card */
+        /* Contenedor del formulario */
         .form-container {
             background: linear-gradient(145deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -106,33 +75,18 @@
             overflow: hidden;
         }
 
-        /* Efecto shimmer sutil en el contenedor */
         .form-container::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(212, 175, 55, 0.05),
-                transparent
-            );
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
             animation: shimmer 8s ease-in-out infinite;
-            /* OBS: Añadido z-index: 0 para poner el brillo en la capa base */
             z-index: 0;
         }
 
-        /* OBS: Nueva regla para asegurar que el contenido (hijos directos) 
-           esté SOBRE el brillo (::before) y no bloquee clics */
-        .form-container > * {
-            position: relative;
-            z-index: 1;
-        }
+        .form-container > * { position: relative; z-index: 1; }
 
-        /* Campos de formulario con micro-interacciones */
+        /* Inputs Premium */
         .form-input {
             background-color: rgba(5, 5, 5, 0.8);
             border: 1.5px solid rgba(68, 68, 68, 0.6);
@@ -154,30 +108,16 @@
             outline: none;
             border-color: #D4AF37;
             background-color: rgba(15, 15, 15, 0.95);
-            box-shadow: 
-                0 0 0 4px rgba(212, 175, 55, 0.15),
-                0 8px 24px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
             transform: translateY(-1px);
         }
         
-        .form-input::placeholder {
-            color: #71717a;
-            font-weight: 400;
-        }
+        .form-input::placeholder { color: #71717a; font-weight: 400; }
         
-        /* Cursor para elementos interactivos */
-        select.form-input, input[type="file"].form-input {
-            cursor: pointer;
-        }
+        /* Labels */
+        label { font-weight: 600; letter-spacing: 0.02em; }
 
-        /* Labels con estilo premium */
-        label {
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            text-transform: none;
-        }
-
-        /* Botones de Pestañas - Estilo Premium */
+        /* Tabs */
         .tab-button {
             background-color: rgba(17, 17, 17, 0.8);
             color: #888;
@@ -192,42 +132,15 @@
             overflow: hidden;
         }
         
-        .tab-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .tab-button:hover:not(.active)::before {
-            opacity: 1;
-        }
-        
-        .tab-button:hover:not(.active) {
-            background-color: rgba(34, 34, 34, 0.9);
-            color: #D4AF37;
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
         .tab-button.active {
             background: linear-gradient(135deg, #D4AF37 0%, #E6C96C 100%);
             color: #0a0a0a;
             font-weight: 700;
             border-color: transparent;
-            box-shadow: 
-                0 0 30px rgba(212, 175, 55, 0.4),
-                0 8px 24px rgba(212, 175, 55, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
-        /* Botón Principal (Submit) - Ultra Premium */
+        /* Botón Principal */
         .submit-button {
             background: linear-gradient(135deg, #D4AF37 0%, #E6C96C 50%, #D4AF37 100%);
             background-size: 200% 100%;
@@ -239,411 +152,314 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             font-size: 14px;
-            box-shadow: 
-                0 0 30px rgba(212, 175, 55, 0.3),
-                0 8px 24px rgba(212, 175, 55, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: none;
-            position: relative;
-            overflow: hidden;
-            /* Asegurar que el contenido del botón (spinner/texto) se alinee */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .submit-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .submit-button:hover::before {
-            left: 100%;
+            display: flex; align-items: center; justify-content: center;
         }
         
         .submit-button:hover {
             background-position: 100% 0;
-            box-shadow: 
-                0 0 50px rgba(212, 175, 55, 0.5),
-                0 12px 32px rgba(212, 175, 55, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.5);
             transform: translateY(-3px) scale(1.02);
         }
-        
-        .submit-button:active {
-            transform: translateY(-1px) scale(0.99);
-            box-shadow: 
-                0 0 20px rgba(212, 175, 55, 0.4),
-                0 4px 12px rgba(212, 175, 55, 0.2);
-        }
-        
-        /* Botón deshabilitado (para carga) */
-        .submit-button:disabled, .secondary-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        .submit-button:disabled:hover::before {
-            left: -100%;
-        }
 
+        .submit-button:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-        /* Botón secundario (Cancelar Modal) */
+        /* Botón Secundario */
         .secondary-button {
             background-color: rgba(34, 34, 34, 0.8);
             color: #f4f4f4;
             border: 1px solid rgba(68, 68, 68, 0.6);
             border-radius: 10px;
             font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            padding: 14px 24px; /* Aumentado padding para consistencia */
-        }
-        
-        .secondary-button:hover:not(:disabled) {
-            background-color: rgba(51, 51, 51, 0.9);
-            border-color: rgba(212, 175, 55, 0.5);
-            color: #D4AF37;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Estilo premium para input de archivo */
-        input[type="file"]::file-selector-button {
-            background: linear-gradient(135deg, rgba(51, 51, 51, 0.8), rgba(34, 34, 34, 0.9));
-            color: #f3f4f6;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-right: 12px;
-        }
-        
-        input[type="file"]::file-selector-button:hover {
-            background: linear-gradient(135deg, #D4AF37, #E6C96C);
-            color: #0a0a0a;
-            border-color: transparent;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-            transform: translateY(-1px);
-        }
-        
-        /* Títulos de sección con línea dorada premium */
-        .section-title {
-            position: relative;
-            padding-bottom: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #D4AF37, transparent);
-            border-radius: 2px;
-        }
-        
-        /* Total con efecto premium */
-        #total-price {
-            background: linear-gradient(135deg, #D4AF37, #E6C96C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: none;
-            font-weight: 900;
-            letter-spacing: 0.02em;
-        }
-        
-        /* Items del carrito con efecto hover premium */
-        .cart-item {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        
-        .cart-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #D4AF37, transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-            border-radius: 0 2px 2px 0;
-        }
-        
-        .cart-item:hover {
-            background-color: rgba(20, 20, 20, 0.8);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateX(4px);
-        }
-        
-        .cart-item:hover::before {
-            opacity: 1;
-        }
-        
-        /* Cursor en botón de eliminar */
-        .remove-item-btn {
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 8px;
-            padding: 8px;
-        }
-        
-        .remove-item-btn:hover {
-            background-color: rgba(239, 68, 68, 0.1);
-            transform: scale(1.1);
-        }
-        
-        /* Botón de confirmación del modal */
-        #modal-confirm-button {
-            background: linear-gradient(135deg, #D4AF37 0%, #E6C96C 100%);
-            color: #0a0a0a;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border-radius: 10px;
             padding: 14px 24px;
-            border: none;
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
-        }
-        
-        #modal-confirm-button:hover {
-            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px) scale(1.03);
-        }
-        
-        /* Animaciones de scroll */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Logo con efecto de entrada elegante */
-        .logo-container {
-            position: relative;
-            animation: fadeIn 1.2s ease-out;
-        }
-        
-        .logo-container::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-            opacity: 0.5;
-        }
-
-        /* Preview de imagen con border premium */
-        #preview-pago, #preview-apartado {
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
             transition: all 0.3s;
         }
-        
-        #preview-pago:hover, #preview-apartado:hover {
-            border-color: rgba(212, 175, 55, 0.6);
-            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.2);
-            transform: scale(1.02);
+        .secondary-button:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
         }
 
-        /* Modal backdrop premium */
-        .modal-backdrop {
-            backdrop-filter: blur(12px);
-            background-color: rgba(0, 0, 0, 0.85);
-            /* Transición quitada para usar la animación de keyframes al mostrar */
+        /* Separadores y Títulos */
+        .section-title { position: relative; padding-bottom: 16px; margin-bottom: 24px; }
+        .section-title::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px;
+            background: linear-gradient(90deg, #D4AF37, transparent); border-radius: 2px;
         }
-
-        /* Contenedor de modal con entrada animada */
-        .modal-content {
-            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Badge de éxito con animación */
-        .success-badge {
-            animation: successBounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        @keyframes successBounce {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Imagen del modal con border dorado */
-        #modal-hat-image {
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Micro-interacción en cantidad input */
-        #modal-quantity {
-            text-align: center;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        /* Scrollbar personalizado (para navegadores webkit) */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(10, 10, 10, 0.5);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #D4AF37, #B8860B);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #E6C96C, #D4AF37);
-        }
-
-        /* Efecto de texto en notas informativas */
-        .info-note {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
-            border-left: 3px solid rgba(212, 175, 55, 0.5);
-            border-radius: 8px;
-            padding: 16px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Separador visual premium */
         .premium-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
             margin: 32px 0;
         }
 
-        /* Mejora de accesibilidad con focus visible */
-        *:focus-visible {
-            outline: 2px solid #D4AF37;
-            outline-offset: 3px;
-            border-radius: 8px;
+        /* Carrito */
+        #total-price {
+            background: linear-gradient(135deg, #D4AF37, #E6C96C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        .cart-item {
+            transition: all 0.3s;
+            position: relative;
+            background-color: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(50, 50, 50, 0.5);
+        }
+        .cart-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateX(4px);
         }
 
-        /* Grid de dos columnas mejorado */
-        .grid-premium {
+        /* SELECTOR DE PRODUCTOS PREMIUM */
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 8px;
         }
 
-        /* Animación sutil en select al cambiar */
-        select.form-input option {
-            background-color: #0a0a0a;
-            color: #f3f4f6;
-            padding: 12px;
+        .product-card {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
         }
 
-        /* Mejora responsive para móvil */
-        @media (max-width: 640px) {
-            .form-container {
-                border-radius: 16px;
-                padding: 24px !important;
-            }
-            
-            .submit-button {
-                padding: 14px 20px;
-                font-size: 13px;
-            }
-            
-            .tab-button {
-                padding: 10px 16px;
-                font-size: 14px;
-            }
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(40, 40, 40, 0.9);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
-        /* Transición suave en cambio de pestañas */
-        #content-pagos, #content-apartados {
-            animation: contentFadeIn 0.4s ease-out;
+        .product-card.selected {
+            border-color: #D4AF37;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(10, 10, 10, 0.8));
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-image-container {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover img { transform: scale(1.1); }
+
+        .product-info h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-info p {
+            font-size: 12px;
+            color: #D4AF37;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .check-badge, .add-badge {
+            position: absolute;
+            background: #D4AF37;
+            color: black;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .check-badge { top: 8px; right: 8px; opacity: 0; transform: scale(0); transition: all 0.3s; }
+        .product-card.selected .check-badge { opacity: 1; transform: scale(1); }
+        .add-badge { bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+        .product-card:hover .add-badge { background: #D4AF37; color: black; border-color: transparent; }
+
+
+        /* --- NUEVO ESTILO DE UPLOAD PREMIUM --- */
+        .upload-box {
+            border: 2px dashed rgba(68, 68, 68, 0.6);
+            background-color: rgba(10, 10, 10, 0.5);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-box:hover {
+            border-color: #D4AF37;
+            background-color: rgba(20, 20, 20, 0.8);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .upload-content {
+            pointer-events: none; /* Dejar pasar clics al contenedor */
+            transition: opacity 0.3s;
+        }
+
+        .upload-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        .upload-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.8;
+            transition: transform 0.3s, opacity 0.3s;
         }
         
-        @keyframes contentFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .upload-box:hover .upload-icon-item {
+            opacity: 1;
+            transform: translateY(-2px);
         }
 
-        /* Efecto de carga (opcional para futuro) */
+        .upload-icon-circle {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .upload-box:hover .upload-icon-circle {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .upload-text-main {
+            font-weight: 700;
+            font-size: 15px;
+            color: #f3f4f6;
+            margin-bottom: 4px;
+        }
+
+        .upload-text-sub {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .hidden-file-input { display: none; }
+
+        .preview-container {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .preview-img {
+            max-height: 280px;
+            width: auto;
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 2px solid rgba(34, 197, 94, 0.5); /* Borde verde al subir */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .change-file-btn {
+            margin-top: 16px;
+            background: rgba(30,30,30,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .change-file-btn:hover {
+            background: rgba(50,50,50,0.9);
+            color: white;
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Loading Spinner */
         .loading-spinner {
             border: 3px solid rgba(212, 175, 55, 0.2);
-            border-top: 3px solid #D4AF37;
+            border-top: 3px solid #000;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 24px; height: 24px;
             animation: spin 1s linear infinite;
         }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Estilo para el spinner en botones */
-        .submit-button .loading-spinner, .secondary-button .loading-spinner {
-             width: 24px;
-             height: 24px;
-             border-width: 2px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Modals */
+        .modal-backdrop { backdrop-filter: blur(12px); background-color: rgba(0, 0, 0, 0.85); }
+        .modal-content { animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
+        /* Responsive */
+        @media (max-width: 640px) {
+            .form-container { padding: 24px !important; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .upload-icons { gap: 16px; }
+            .upload-icon-circle { width: 48px; height: 48px; }
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Contenedor Principal --><div class="min-h-screen w-full px-4 py-8 md:py-12">
+    <!-- Contenedor Principal -->
+    <div class="min-h-screen w-full px-4 py-8 md:py-12">
 
-        <!-- Header con Logo (Animado) --><header class="max-w-md mx-auto mb-10 text-center animate-on-scroll logo-container">
-            <img src="https://i.imgur.com/Rkx03XV.png" alt="Star Hats Club Logo" class="w-48 h-auto mx-auto"
+        <!-- Header con Logo -->
+        <header class="max-w-md mx-auto mb-10 text-center relative z-10">
+            <img src="https://i.imgur.com/Rkx03XV.png" alt="Star Hats Club Logo" class="w-48 h-auto mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                  onerror="this.onerror=null; this.src='https://placehold.co/200x200/000000/FFFFFF?text=Star+Hats+Club';">
         </header>
 
-        <!-- Contenedor del Formulario (Animado) --><main class="max-w-2xl mx-auto p-6 sm:p-8 md:p-10 form-container animate-on-scroll" style="transition-delay: 0.2s;">
+        <!-- Contenedor del Formulario -->
+        <main class="max-w-3xl mx-auto p-6 sm:p-8 md:p-10 form-container">
 
-            <!-- Selector de Pestañas (Slider) --><div class="mb-8 p-1.5 bg-black/40 rounded-xl grid grid-cols-2 gap-2">
+            <!-- Selector de Pestañas -->
+            <div class="mb-8 p-1.5 bg-black/40 rounded-xl grid grid-cols-2 gap-2">
                 <button id="tab-pagos" class="tab-button active">
                     <i data-lucide="credit-card" class="inline-block w-4 h-4 mr-1.5"></i>
                     Pago Completo
@@ -654,21 +470,29 @@
                 </button>
             </div>
 
-            <!-- Contenido de Pestañas --><div>
-                <!-- SECCIÓN DE PAGO COMPLETO --><div id="content-pagos">
+            <!-- Contenido de Pestañas -->
+            <div>
+                <!-- SECCIÓN DE PAGO COMPLETO -->
+                <div id="content-pagos">
                     <form id="form-pago" class="space-y-6">
-                        <!-- Datos Personales --><h2 class="text-2xl font-bold text-white section-title">1. Tus Datos</h2>
+                        
+                        <!-- 1. Datos Personales -->
+                        <h2 class="text-2xl font-bold text-white section-title">1. Tus Datos</h2>
                         <div class="space-y-4">
+                            <!-- Nombre -->
                             <div>
                                 <label for="nombre-pago" class="block text-sm font-medium text-gray-300 mb-2">Nombre Completo *</label>
-                                <input type="text" id="nombre-pago" class="form-input" placeholder="Tu nombre" required>
+                                <input type="text" id="nombre-pago" class="form-input" placeholder="Nombre y Apellidos" required>
                             </div>
+                            
+                            <!-- Instagram -->
                             <div>
                                 <label for="instagram-pago" class="block text-sm font-medium text-gray-300 mb-2">Username de Instagram</label>
-                                <input type="text" id="instagram-pago" class="form-input" placeholder="@tu_usuario (Recomendado)">
-                                <p class="text-xs text-gray-500 mt-2">Para un seguimiento más rápido, carnal.</p>
+                                <input type="text" id="instagram-pago" class="form-input" placeholder="@tu_usuario">
                             </div>
-                            <div class="grid-premium">
+
+                            <!-- Emails -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="email-pago" class="block text-sm font-medium text-gray-300 mb-2">Correo Electrónico *</label>
                                     <input type="email" id="email-pago" class="form-input" placeholder="tu@correo.com" required>
@@ -678,30 +502,99 @@
                                     <input type="email" id="confirm-email-pago" class="form-input" placeholder="Escríbelo de nuevo" required>
                                 </div>
                             </div>
+
+                            <!-- Teléfono -->
                             <div>
-                                <label for="telefono-pago" class="block text-sm font-medium text-gray-300 mb-2">Número de Teléfono (WhatsApp) *</label>
+                                <label for="telefono-pago" class="block text-sm font-medium text-gray-300 mb-2">Teléfono (WhatsApp) *</label>
                                 <input type="tel" id="telefono-pago" class="form-input" placeholder="Ej. 33 1234 5678" required>
                             </div>
-                            <div>
-                                <label for="direccion-pago" class="block text-sm font-medium text-gray-300 mb-2">Dirección de Envío Completa *</label>
-                                <textarea id="direccion-pago" rows="3" class="form-input" placeholder="Calle, Número, Colonia, CP, Ciudad, Estado. Revisa bien." required></textarea>
+
+                            <!-- Dirección Mejorada (Grid) -->
+                            <div class="pt-4">
+                                <label class="block text-sm font-bold text-yellow-500 mb-3 uppercase tracking-wide">Dirección de Envío</label>
+                                <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                                    <div class="md:col-span-4">
+                                        <label for="addr-calle" class="block text-xs font-medium text-gray-400 mb-1">Calle *</label>
+                                        <input type="text" id="addr-calle" class="form-input" placeholder="Nombre de la calle" required>
+                                    </div>
+                                    <div class="md:col-span-1">
+                                        <label for="addr-ext" class="block text-xs font-medium text-gray-400 mb-1">No. Ext *</label>
+                                        <input type="text" id="addr-ext" class="form-input" placeholder="123" required>
+                                    </div>
+                                    <div class="md:col-span-1">
+                                        <label for="addr-int" class="block text-xs font-medium text-gray-400 mb-1">No. Int</label>
+                                        <input type="text" id="addr-int" class="form-input" placeholder="A-2">
+                                    </div>
+                                    <div class="md:col-span-3">
+                                        <label for="addr-colonia" class="block text-xs font-medium text-gray-400 mb-1">Colonia *</label>
+                                        <input type="text" id="addr-colonia" class="form-input" placeholder="Colonia" required>
+                                    </div>
+                                    <div class="md:col-span-3">
+                                        <label for="addr-cp" class="block text-xs font-medium text-gray-400 mb-1">Código Postal *</label>
+                                        <input type="text" id="addr-cp" class="form-input" placeholder="00000" required>
+                                    </div>
+                                    <div class="md:col-span-3">
+                                        <label for="addr-ciudad" class="block text-xs font-medium text-gray-400 mb-1">Ciudad / Municipio *</label>
+                                        <input type="text" id="addr-ciudad" class="form-input" placeholder="Ciudad" required>
+                                    </div>
+                                    <div class="md:col-span-3">
+                                        <label for="addr-estado" class="block text-xs font-medium text-gray-400 mb-1">Estado *</label>
+                                        <select id="addr-estado" class="form-input" required>
+                                            <option value="">Selecciona Estado</option>
+                                            <option value="Aguascalientes">Aguascalientes</option>
+                                            <option value="Baja California">Baja California</option>
+                                            <option value="Baja California Sur">Baja California Sur</option>
+                                            <option value="Campeche">Campeche</option>
+                                            <option value="Chiapas">Chiapas</option>
+                                            <option value="Chihuahua">Chihuahua</option>
+                                            <option value="CDMX">Ciudad de México</option>
+                                            <option value="Coahuila">Coahuila</option>
+                                            <option value="Colima">Colima</option>
+                                            <option value="Durango">Durango</option>
+                                            <option value="Estado de México">Estado de México</option>
+                                            <option value="Guanajuato">Guanajuato</option>
+                                            <option value="Guerrero">Guerrero</option>
+                                            <option value="Hidalgo">Hidalgo</option>
+                                            <option value="Jalisco">Jalisco</option>
+                                            <option value="Michoacán">Michoacán</option>
+                                            <option value="Morelos">Morelos</option>
+                                            <option value="Nayarit">Nayarit</option>
+                                            <option value="Nuevo León">Nuevo León</option>
+                                            <option value="Oaxaca">Oaxaca</option>
+                                            <option value="Puebla">Puebla</option>
+                                            <option value="Querétaro">Querétaro</option>
+                                            <option value="Quintana Roo">Quintana Roo</option>
+                                            <option value="San Luis Potosí">San Luis Potosí</option>
+                                            <option value="Sinaloa">Sinaloa</option>
+                                            <option value="Sonora">Sonora</option>
+                                            <option value="Tabasco">Tabasco</option>
+                                            <option value="Tamaulipas">Tamaulipas</option>
+                                            <option value="Tlaxcala">Tlaxcala</option>
+                                            <option value="Veracruz">Veracruz</option>
+                                            <option value="Yucatán">Yucatán</option>
+                                            <option value="Zacatecas">Zacatecas</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="premium-divider"></div>
 
-                        <!-- Selección de Pedido --><h2 class="text-2xl font-bold text-white section-title">2. Tu Pedido</h2>
+                        <!-- 2. Tu Pedido -->
+                        <h2 class="text-2xl font-bold text-white section-title">2. Selección de Productos</h2>
                         <div>
-                            <label for="hat-select" class="block text-sm font-medium text-gray-300 mb-2">Agrega gorras a tu orden</label>
-                            <select id="hat-select" class="form-input">
-                                <option value="">-- Seleccionar gorra del drop --</option>
-                                <!-- Opciones generadas por JS --></select>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Haz clic para agregar al carrito:</label>
+                            <div id="product-grid-pago" class="product-grid">
+                                <!-- Cards generadas por JS -->
+                            </div>
                         </div>
                         
-                        <!-- Resumen del Carrito --><div id="cart-summary" class="space-y-3">
-                            <!-- Items del carrito generados por JS --></div>
+                        <div id="cart-summary" class="space-y-3 mt-4">
+                            <!-- Items del carrito -->
+                        </div>
 
-                        <!-- Total --><div id="total-container" class="pt-6 border-t border-gray-700/50 text-right" style="display: none;">
+                        <div id="total-container" class="pt-6 border-t border-gray-700/50 text-right" style="display: none;">
                             <p class="text-3xl font-extrabold text-white">
                                 Total: <span id="total-price">$0.00 MXN</span>
                             </p>
@@ -709,87 +602,160 @@
 
                         <div class="premium-divider"></div>
 
-                        <!-- Carga de Comprobante --><h2 class="text-2xl font-bold text-white section-title">3. Tu Comprobante</h2>
+                        <!-- 3. Comprobante (NUEVA ZONA DE CARGA) -->
+                        <h2 class="text-2xl font-bold text-white section-title">3. Confirmación</h2>
                         <div>
-                            <label for="comprobante-pago" class="block text-sm font-medium text-gray-300 mb-2">Sube tu Comprobante (Ticket o Screenshot) *</label>
-                            <input type="file" id="comprobante-pago" class="form-input" accept="image/png, image/jpeg, .heic" required>
-                            <img id="preview-pago" src="" alt="Vista previa" class="mt-4 rounded-lg max-h-60 mx-auto" style="display: none;">
+                            <label class="block text-sm font-medium text-gray-300 mb-3">Sube tu Comprobante de Pago *</label>
+                            
+                            <div class="upload-box" id="upload-box-pago">
+                                <input type="file" id="comprobante-pago" class="hidden-file-input" accept="image/png, image/jpeg, .heic" required>
+                                
+                                <!-- Estado Inicial -->
+                                <div class="upload-content" id="upload-placeholder-pago">
+                                    <div class="upload-icons">
+                                        <!-- Icono Ticket -->
+                                        <div class="upload-icon-item">
+                                            <div class="upload-icon-circle">
+                                                <i data-lucide="receipt" class="text-yellow-500 w-7 h-7"></i>
+                                            </div>
+                                            <span class="text-xs font-semibold text-gray-400">Ticket Físico</span>
+                                        </div>
+                                        <!-- Separador -->
+                                        <div class="h-12 w-px bg-gray-700/50"></div>
+                                        <!-- Icono Screenshot -->
+                                        <div class="upload-icon-item">
+                                            <div class="upload-icon-circle">
+                                                <i data-lucide="smartphone" class="text-yellow-500 w-7 h-7"></i>
+                                            </div>
+                                            <span class="text-xs font-semibold text-gray-400">Transferencia</span>
+                                        </div>
+                                    </div>
+                                    <p class="upload-text-main">Toca aquí para subir Foto o Screenshot</p>
+                                    <p class="upload-text-sub">Aceptamos: PNG, JPG, HEIC</p>
+                                </div>
+
+                                <!-- Estado Preview -->
+                                <div class="preview-container" id="preview-container-pago">
+                                    <img id="preview-img-pago" src="" class="preview-img">
+                                    <button type="button" class="change-file-btn" id="change-file-pago">
+                                        <i data-lucide="refresh-cw" class="w-4 h-4 mr-2"></i> Cambiar imagen
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Mensaje de Error --><div id="error-message-pago" class="text-red-400 text-sm font-medium bg-red-500/10 p-4 rounded-lg border border-red-500/20" style="display: none;"></div>
+                        <div id="error-message-pago" class="text-red-400 text-sm font-medium bg-red-500/10 p-4 rounded-lg border border-red-500/20" style="display: none;"></div>
 
-                        <!-- Submit -->
-                        <!-- FIX: HTML del botón actualizado para el spinner genérico -->
-                        <button type="submit" class="submit-button">
+                        <button type="submit" class="submit-button group mt-6">
                             <span class="button-text inline-flex items-center">
-                                <i data-lucide="send" class="inline-block w-5 h-5 mr-2"></i>
-                                Confirmar Pago
+                                <i data-lucide="send" class="inline-block w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Confirmar Pedido
                             </span>
                             <div class="loading-spinner mx-auto" style="display: none;"></div>
                         </button>
+                        
+                        <p class="text-xs text-gray-500 text-center mt-3">
+                            * Se generará un número de orden provisional.
+                        </p>
                     </form>
                 </div>
 
-                <!-- SECCIÓN DE APARTADOS --><div id="content-apartados" style="display: none;">
+                <!-- SECCIÓN DE APARTADOS -->
+                <div id="content-apartados" style="display: none;">
                     <form id="form-apartado" class="space-y-6">
-                        <div class="info-note text-gray-300">
-                            <i data-lucide="info" class="inline-block w-4 h-4 mr-2 text-yellow-400"></i>
-                            Esta sección es para subir tu comprobante de apartado.
+                        <div class="bg-yellow-500/10 border-l-4 border-yellow-500 p-4 rounded text-sm text-gray-300">
+                            <i data-lucide="info" class="inline-block w-4 h-4 mr-1 text-yellow-500"></i>
+                            Usa esta sección solo si vas a realizar un <strong>apartado</strong> de producto.
                         </div>
                         
-                        <!-- Datos Personales --><h2 class="text-2xl font-bold text-white section-title">1. Tus Datos</h2>
+                        <!-- 1. Datos Personales -->
+                        <h2 class="text-2xl font-bold text-white section-title">1. Tus Datos</h2>
                         <div class="space-y-4">
                             <div>
                                 <label for="nombre-apartado" class="block text-sm font-medium text-gray-300 mb-2">Nombre Completo *</label>
-                                <input type="text" id="nombre-apartado" class="form-input" placeholder="Tu nombre" required>
+                                <input type="text" id="nombre-apartado" class="form-input" required>
                             </div>
                             <div>
-                                <label for="instagram-apartado" class="block text-sm font-medium text-gray-300 mb-2">Username de Instagram</label>
-                                <input type="text" id="instagram-apartado" class="form-input" placeholder="@tu_usuario (Recomendado)">
-                                <p class="text-xs text-gray-500 mt-2">Para un seguimiento más rápido, carnal.</p>
+                                <label for="instagram-apartado" class="block text-sm font-medium text-gray-300 mb-2">Instagram</label>
+                                <input type="text" id="instagram-apartado" class="form-input" placeholder="@tu_usuario">
                             </div>
-                            <div class="grid-premium">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label for="email-apartado" class="block text-sm font-medium text-gray-300 mb-2">Correo Electrónico *</label>
-                                    <input type="email" id="email-apartado" class="form-input" placeholder="tu@correo.com" required>
+                                    <label for="email-apartado" class="block text-sm font-medium text-gray-300 mb-2">Correo *</label>
+                                    <input type="email" id="email-apartado" class="form-input" required>
                                 </div>
                                 <div>
-                                    <label for="confirm-email-apartado" class="block text-sm font-medium text-gray-300 mb-2">Confirma tu Correo *</label>
-                                    <input type="email" id="confirm-email-apartado" class="form-input" placeholder="Escríbelo de nuevo" required>
+                                    <label for="confirm-email-apartado" class="block text-sm font-medium text-gray-300 mb-2">Confirma Correo *</label>
+                                    <input type="email" id="confirm-email-apartado" class="form-input" required>
                                 </div>
                             </div>
                             <div>
-                                <label for="telefono-apartado" class="block text-sm font-medium text-gray-300 mb-2">Número de Teléfono (WhatsApp) *</label>
-                                <input type="tel" id="telefono-apartado" class="form-input" placeholder="Ej. 33 1234 5678" required>
+                                <label for="telefono-apartado" class="block text-sm font-medium text-gray-300 mb-2">Teléfono *</label>
+                                <input type="tel" id="telefono-apartado" class="form-input" required>
                             </div>
                         </div>
 
                         <div class="premium-divider"></div>
 
-                        <!-- Selección de Gorra --><h2 class="text-2xl font-bold text-white section-title">2. Gorra a Apartar</h2>
+                        <!-- 2. Selección -->
+                        <h2 class="text-2xl font-bold text-white section-title">2. Producto a Apartar</h2>
                         <div>
-                            <label for="hat-select-apartado" class="block text-sm font-medium text-gray-300 mb-2">¿Qué gorra estás apartando? *</label>
-                            <select id="hat-select-apartado" class="form-input" required>
-                                <option value="">-- Seleccionar gorra --</option>
-                                <!-- Opciones generadas por JS --></select>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Selecciona la gorra para reservar:</label>
+                            <div id="product-grid-apartado" class="product-grid">
+                                <!-- Cards generadas por JS -->
+                            </div>
+                            <input type="hidden" id="selected-hat-apartado-id" required>
                         </div>
                         
                         <div class="premium-divider"></div>
 
-                        <!-- Carga de Comprobante --><h2 class="text-2xl font-bold text-white section-title">3. Tu Comprobante</h2>
+                        <!-- 3. Comprobante (NUEVA ZONA DE CARGA) -->
+                        <h2 class="text-2xl font-bold text-white section-title">3. Confirmación</h2>
                         <div>
-                            <label for="comprobante-apartado" class="block text-sm font-medium text-gray-300 mb-2">Sube tu Comprobante (Ticket o Screenshot) *</label>
-                            <input type="file" id="comprobante-apartado" class="form-input" accept="image/png, image/jpeg, .heic" required>
-                            <img id="preview-apartado" src="" alt="Vista previa" class="mt-4 rounded-lg max-h-60 mx-auto" style="display: none;">
+                            <label class="block text-sm font-medium text-gray-300 mb-3">Sube tu Comprobante de Apartado *</label>
+                            
+                            <div class="upload-box" id="upload-box-apartado">
+                                <input type="file" id="comprobante-apartado" class="hidden-file-input" accept="image/png, image/jpeg, .heic" required>
+                                
+                                <!-- Estado Inicial -->
+                                <div class="upload-content" id="upload-placeholder-apartado">
+                                    <div class="upload-icons">
+                                        <!-- Icono Ticket -->
+                                        <div class="upload-icon-item">
+                                            <div class="upload-icon-circle">
+                                                <i data-lucide="receipt" class="text-yellow-500 w-7 h-7"></i>
+                                            </div>
+                                            <span class="text-xs font-semibold text-gray-400">Ticket Físico</span>
+                                        </div>
+                                        <!-- Separador -->
+                                        <div class="h-12 w-px bg-gray-700/50"></div>
+                                        <!-- Icono Screenshot -->
+                                        <div class="upload-icon-item">
+                                            <div class="upload-icon-circle">
+                                                <i data-lucide="smartphone" class="text-yellow-500 w-7 h-7"></i>
+                                            </div>
+                                            <span class="text-xs font-semibold text-gray-400">Transferencia</span>
+                                        </div>
+                                    </div>
+                                    <p class="upload-text-main">Toca aquí para subir Foto o Screenshot</p>
+                                    <p class="upload-text-sub">Aceptamos: PNG, JPG, HEIC</p>
+                                </div>
+
+                                <!-- Estado Preview -->
+                                <div class="preview-container" id="preview-container-apartado">
+                                    <img id="preview-img-apartado" src="" class="preview-img">
+                                    <button type="button" class="change-file-btn" id="change-file-apartado">
+                                        <i data-lucide="refresh-cw" class="w-4 h-4 mr-2"></i> Cambiar imagen
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Mensaje de Error --><div id="error-message-apartado" class="text-red-400 text-sm font-medium bg-red-500/10 p-4 rounded-lg border border-red-500/20" style="display: none;"></div>
+                        <div id="error-message-apartado" class="text-red-400 text-sm font-medium bg-red-500/10 p-4 rounded-lg border border-red-500/20" style="display: none;"></div>
                         
-                        <!-- Submit -->
-                        <!-- FIX: HTML del botón actualizado para el spinner genérico -->
-                        <button type="submit" class="submit-button">
+                        <button type="submit" class="submit-button group mt-6">
                             <span class="button-text inline-flex items-center">
-                                <i data-lucide="send" class="inline-block w-5 h-5 mr-2"></i>
+                                <i data-lucide="send" class="inline-block w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform"></i>
                                 Confirmar Apartado
                             </span>
                             <div class="loading-spinner mx-auto" style="display: none;"></div>
@@ -797,140 +763,109 @@
                     </form>
                 </div>
             </div>
-
         </main>
     </div>
 
-    <!-- Modal de Cantidad (Pop-out) --><div id="quantity-modal" class="fixed inset-0 modal-backdrop flex items-center justify-center p-4" style="display: none; z-index: 50;">
+    <!-- Modal de Cantidad -->
+    <div id="quantity-modal" class="fixed inset-0 modal-backdrop flex items-center justify-center p-4" style="display: none; z-index: 50;">
         <div class="form-container modal-content w-full max-w-sm p-6">
-            <h3 id="modal-hat-name" class="text-xl font-semibold text-white mb-2">Nombre de la Gorra</h3>
-            <p id="modal-hat-price" class="text-lg text-gray-400 mb-4">$0.00 MXN</p>
-            <img id="modal-hat-image" src="" alt="Gorra" class="w-full h-auto object-cover rounded-lg mb-4 max-h-60">
+            <h3 id="modal-hat-name" class="text-xl font-semibold text-white mb-2">Nombre</h3>
+            <p id="modal-hat-price" class="text-lg text-yellow-500 mb-4 font-bold">$0.00</p>
+            <img id="modal-hat-image" src="" alt="Producto" class="w-full h-48 object-cover rounded-lg mb-4 border border-gray-700">
             
             <div class="mb-6">
-                <label for="modal-quantity" class="block text-sm font-medium text-gray-300 mb-2">Cantidad (Máx 10)</label>
-                <input type="number" id="modal-quantity" class="form-input" value="1" min="1" max="10">
+                <label for="modal-quantity" class="block text-sm font-medium text-gray-300 mb-2">Cantidad</label>
+                <input type="number" id="modal-quantity" class="form-input text-center text-xl font-bold" value="1" min="1" max="5">
             </div>
             
             <div class="grid grid-cols-2 gap-3">
                 <button id="modal-cancel-button" class="secondary-button">Cancelar</button>
-                <button id="modal-confirm-button">Agregar</button>
+                <button id="modal-confirm-button" class="bg-white text-black font-bold py-3 px-4 rounded-lg hover:bg-yellow-400 transition-colors">Agregar</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Éxito --><div id="success-modal" class="fixed inset-0 modal-backdrop flex items-center justify-center p-4" style="display: none; z-index: 50;">
-        <div class="form-container modal-content w-full max-w-md p-8 text-center">
-            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 success-badge">
-                <i data-lucide="check" class="text-black w-12 h-12"></i>
+    <!-- Modal de Éxito -->
+    <div id="success-modal" class="fixed inset-0 modal-backdrop flex items-center justify-center p-4" style="display: none; z-index: 50;">
+        <div class="form-container modal-content w-full max-w-md p-8 text-center border-t-4 border-t-yellow-500">
+            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_20px_rgba(34,197,94,0.4)]">
+                <i data-lucide="check" class="text-black w-10 h-10 stroke-[3px]"></i>
             </div>
-            <h3 class="text-3xl font-bold text-white mb-3">¡Listo, carnal!</h3>
-            <p class="text-xl text-gray-300 mb-2">Orden Recibida</p>
-            <p id="success-order-number" class="text-lg text-gray-400 mb-6">Tu número de orden es: <strong class="text-white"></strong></p>
-            <div class="info-note text-sm text-left">
-                Recibirás un <strong class="text-white">correo de confirmación</strong> con los detalles de tu pedido en breve.
-                <br><br>
-                El equipo revisará tu comprobante y recibirás una respuesta en menos de 48 horas.
-                <br><br>Gracias por la paciencia. 🙏
+            <h3 class="text-3xl font-bold text-white mb-2">¡Recibido, Carnal!</h3>
+            <p class="text-gray-400 mb-6">Tu información ha sido enviada.</p>
+            
+            <div class="bg-white/5 p-4 rounded-lg mb-6 border border-white/10">
+                <p class="text-sm text-gray-400 mb-1">Tu número de orden <span class="text-yellow-500 font-bold">provisional</span> es:</p>
+                <p id="success-order-number" class="text-2xl font-mono font-bold text-white tracking-wider">Loading...</p>
             </div>
-            <button id="success-close-button" class="submit-button w-full mt-6">Cerrar</button>
+
+            <div class="text-sm text-left bg-blue-500/10 p-4 rounded border border-blue-500/20 mb-6">
+                <p class="text-blue-200">
+                    <i data-lucide="info" class="inline-block w-4 h-4 mr-1 align-text-bottom"></i>
+                    <strong>Nota Importante:</strong> Este número es provisional. El equipo validará tu comprobante de transferencia y recibirás la confirmación oficial en tu correo en menos de 48 hrs.
+                </p>
+            </div>
+
+            <button id="success-close-button" class="submit-button w-full">Entendido</button>
         </div>
     </div>
-
 
     <script>
         // --- Webhook URL ---
         const webhookUrl = "https://n8n.srv840532.hstgr.cloud/webhook/b54d2f6f-05cf-406a-a18d-37a688fecadc";
 
-        // --- Base de Datos de Gorras (Simulada) ---
+        // --- NUEVO CATÁLOGO DE PRODUCTOS (V2) ---
         const hatData = [
-            { id: 1, name: "Triple threat", price: 1400.00, image: "https://i.imgur.com/4FcmASq.jpeg" },
-            { id: 2, name: "NY Silver Star", price: 1600.00, image: "https://i.imgur.com/XvsJuX7.png" },
-            { id: 3, name: "La gorra de las estrellas vol. II", price: 1600.00, image: "https://i.imgur.com/yp7rTys.jpeg" },
+            { id: 1, name: "NY Colors All Around 🗽🎨", price: 1499.00, image: "https://i.ibb.co/kVQjHnqW/Whats-App-Image-2025-12-22-at-10-36-07.jpg" },
+            { id: 2, name: "Triple Red Star ❤️⭐️", price: 1299.00, image: "https://i.ibb.co/WNdnfnr4/Whats-App-Image-2025-12-22-at-10-36-10.jpg" },
+            { id: 3, name: "NY Frozen All Around ❄️", price: 1499.00, image: "https://i.ibb.co/B26YXwYS/Whats-App-Image-2025-12-22-at-10-36-08-1.jpg" },
+            { id: 4, name: "Total Black District ⚫️", price: 1499.00, image: "https://i.ibb.co/M525kvry/Gemini-Generated-Image-7v543c7v543c7v54.jpg" },
+            { id: 5, name: "Crossbody Leather Star 👜", price: 4499.00, image: "https://i.ibb.co/w3qFsyN/Gemini-Generated-Image-ry6vbnry6vbnry6v.png" },
+            { id: 6, name: "Wallet Leather Star 💼", price: 1199.00, image: "https://i.ibb.co/xSrnW6Qp/Gemini-Generated-Image-jpyksqjpyksqjpyk.png" }
         ];
 
-        // --- Estado de la Aplicación ---
         let cart = [];
         let currentSelectedHatId = null;
 
-        // --- Nueva función para generar código de orden ---
-        /**
-         * Genera un código de orden personalizado.
-         * @param {string} hatName - El nombre de la gorra para sacar las siglas.
-         * @param {string} typePrefix - 'P' para Pago, 'A' para Apartado.
-         * @returns {string} El código de orden (ej: TRP-123456).
-         */
+        // Generador de Código de Orden
         function generateOrderNumber(hatName, typePrefix) {
-            // 1. Obtener las primeras dos siglas del nombre
-            const prefix = hatName.substring(0, 2).toUpperCase();
-            // 2. Generar 6 dígitos aleatorios
+            const prefix = hatName.substring(0, 2).toUpperCase().replace(/[^A-Z]/g, 'X'); 
             const randomDigits = Math.floor(100000 + Math.random() * 900000).toString();
-            // 3. Combinar
             return `${prefix}${typePrefix}-${randomDigits}`;
         }
 
+        // Formateador de Moneda
+        const formatMoney = (amount) => {
+            return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(amount);
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Inicializar Iconos ---
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
 
-            // --- Intersection Observer for Scroll Animations ---
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
-
-            // --- Selectores de Elementos ---
+            // Selectores
             const tabPagos = document.getElementById('tab-pagos');
             const tabApartados = document.getElementById('tab-apartados');
             const contentPagos = document.getElementById('content-pagos');
             const contentApartados = document.getElementById('content-apartados');
-
-            const hatSelect = document.getElementById('hat-select');
-            const hatSelectApartado = document.getElementById('hat-select-apartado');
             
-            const quantityModal = document.getElementById('quantity-modal');
-            const modalHatName = document.getElementById('modal-hat-name');
-            const modalHatPrice = document.getElementById('modal-hat-price');
-            const modalHatImage = document.getElementById('modal-hat-image');
-            const modalQuantity = document.getElementById('modal-quantity');
-            const modalCancelButton = document.getElementById('modal-cancel-button');
-            const modalConfirmButton = document.getElementById('modal-confirm-button');
+            // Containers Grid
+            const gridPago = document.getElementById('product-grid-pago');
+            const gridApartado = document.getElementById('product-grid-apartado');
+            const hiddenApartadoInput = document.getElementById('selected-hat-apartado-id');
 
+            const quantityModal = document.getElementById('quantity-modal');
             const cartSummary = document.getElementById('cart-summary');
             const totalContainer = document.getElementById('total-container');
             const totalPriceEl = document.getElementById('total-price');
 
-            const formPago = document.getElementById('form-pago');
-            const formApartado = document.getElementById('form-apartado');
-            
-            const successModal = document.getElementById('success-modal');
-            const successOrderNumber = document.getElementById('success-order-number').querySelector('strong');
-            const successCloseButton = document.getElementById('success-close-button');
-
-
-            // --- Lógica de Pestañas con Animación (basada en display y CSS keyframes) ---
+            // --- Lógica de Pestañas ---
             tabPagos.addEventListener('click', () => {
                 if (tabPagos.classList.contains('active')) return;
                 tabPagos.classList.add('active');
                 tabApartados.classList.remove('active');
                 contentPagos.style.display = 'block';
                 contentApartados.style.display = 'none';
-                if (typeof lucide !== 'undefined') lucide.createIcons(); // Re-render icons
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             });
 
             tabApartados.addEventListener('click', () => {
@@ -939,62 +874,82 @@
                 tabPagos.classList.remove('active');
                 contentApartados.style.display = 'block';
                 contentPagos.style.display = 'none';
-                if (typeof lucide !== 'undefined') lucide.createIcons(); // Re-render icons
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             });
 
-            // --- Poblar Selectores de Gorras ---
-            function populateHatSelects() {
+            // --- RENDERIZAR GRIDS DE PRODUCTOS ---
+            function renderProductGrid(container, isSingleSelection) {
+                container.innerHTML = "";
                 hatData.forEach(hat => {
-                    const option = document.createElement('option');
-                    option.value = hat.id;
+                    const card = document.createElement('div');
+                    card.className = "product-card group";
+                    card.dataset.id = hat.id;
                     
-                    // Lógica simplificada: ahora todas las gorras van a ambos selectores
-                    option.textContent = `${hat.name} - $${hat.price.toFixed(2)} MXN`;
-                    hatSelect.appendChild(option.cloneNode(true)); // A Pago Completo
-                    hatSelectApartado.appendChild(option.cloneNode(true)); // TAMBIÉN a Apartado
+                    // Contenido visual
+                    card.innerHTML = `
+                        <div class="product-image-container">
+                            <img src="${hat.image}" alt="${hat.name}">
+                            ${isSingleSelection ? 
+                                '<div class="check-badge"><i data-lucide="check" class="w-4 h-4"></i></div>' : 
+                                '<div class="add-badge"><i data-lucide="plus" class="w-4 h-4"></i></div>'}
+                        </div>
+                        <div class="product-info">
+                            <h4>${hat.name}</h4>
+                            <p>${formatMoney(hat.price)}</p>
+                        </div>
+                    `;
+
+                    // Event Listener Click
+                    card.addEventListener('click', () => {
+                        if (isSingleSelection) {
+                            // Lógica para Apartado (Selección Única)
+                            // Remover selected de todos
+                            const allCards = container.querySelectorAll('.product-card');
+                            allCards.forEach(c => c.classList.remove('selected'));
+                            // Añadir a este
+                            card.classList.add('selected');
+                            // Actualizar input oculto
+                            hiddenApartadoInput.value = hat.id;
+                        } else {
+                            // Lógica para Pago Completo (Abrir Modal de Carrito)
+                            openQuantityModal(hat);
+                        }
+                    });
+
+                    container.appendChild(card);
                 });
+                
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             }
-            populateHatSelects();
 
-            // --- Lógica del Modal de Cantidad (basada en display y CSS keyframes) ---
-            hatSelect.addEventListener('change', () => {
-                const hatId = hatSelect.value;
-                if (!hatId) return;
+            // Renderizar ambos grids
+            renderProductGrid(gridPago, false); // False = Modo Carrito
+            renderProductGrid(gridApartado, true); // True = Modo Selección Única
 
-                currentSelectedHatId = parseInt(hatId);
-                const hat = hatData.find(h => h.id === currentSelectedHatId);
-                
-                if (!hat) {
-                    console.error("No se encontró la gorra con ID:", currentSelectedHatId);
-                    return;
-                }
-                
-                modalHatName.textContent = hat.name;
-                modalHatPrice.textContent = `$${hat.price.toFixed(2)} MXN`;
-                modalHatImage.src = hat.image;
-                modalQuantity.value = '1';
-                
+            // --- Modal de Cantidad ---
+            function openQuantityModal(hat) {
+                currentSelectedHatId = hat.id;
+                document.getElementById('modal-hat-name').textContent = hat.name;
+                document.getElementById('modal-hat-price').textContent = formatMoney(hat.price);
+                document.getElementById('modal-hat-image').src = hat.image;
+                document.getElementById('modal-quantity').value = '1';
                 quantityModal.style.display = 'flex';
-                setTimeout(() => {
-                    if (typeof lucide !== 'undefined') {
-                        lucide.createIcons();
-                    }
-                }, 50); 
-            });
+                // Resetear icono
+                setTimeout(() => { if (typeof lucide !== 'undefined') lucide.createIcons(); }, 10);
+            }
 
-            modalCancelButton.addEventListener('click', () => {
+            document.getElementById('modal-cancel-button').addEventListener('click', () => {
                 quantityModal.style.display = 'none';
-                hatSelect.value = "";
                 currentSelectedHatId = null;
             });
 
-            modalConfirmButton.addEventListener('click', () => {
-                const quantity = parseInt(modalQuantity.value);
+            document.getElementById('modal-confirm-button').addEventListener('click', () => {
+                const quantity = parseInt(document.getElementById('modal-quantity').value);
                 if (quantity < 1 || !currentSelectedHatId) return;
 
                 const hat = hatData.find(h => h.id === currentSelectedHatId);
-
                 const existingItem = cart.find(item => item.id === hat.id);
+                
                 if (existingItem) {
                     existingItem.quantity += quantity;
                 } else {
@@ -1003,17 +958,15 @@
 
                 updateCartSummary();
                 quantityModal.style.display = 'none';
-                hatSelect.value = "";
                 currentSelectedHatId = null;
             });
 
-            // --- Lógica del Carrito con Clases Premium ---
+            // --- Actualizar Carrito ---
             function updateCartSummary() {
                 cartSummary.innerHTML = "";
                 let total = 0;
 
                 if (cart.length === 0) {
-                    cartSummary.innerHTML = '<p class="text-sm text-center text-gray-500 py-6">Agrega gorras de la lista.</p>';
                     totalContainer.style.display = 'none';
                     return;
                 }
@@ -1021,291 +974,245 @@
                 cart.forEach((item, index) => {
                     total += item.price * item.quantity;
                     const itemEl = document.createElement('div');
-                    itemEl.className = 'cart-item flex items-center justify-between bg-black/40 p-4 rounded-lg border border-gray-700/50'; // Borde más sutil
+                    itemEl.className = 'cart-item flex items-center justify-between p-3 rounded-lg mb-2';
                     itemEl.innerHTML = `
-                        <div class="flex items-center space-x-4">
-                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover border border-gray-700/50">
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.image}" class="w-12 h-12 rounded object-cover border border-gray-600">
                             <div>
-                                <p class="font-semibold text-white text-base">${item.name}</p>
-                                <p class="text-sm text-gray-400 mt-1">${item.quantity} x $${item.price.toFixed(2)}</p>
+                                <p class="font-semibold text-white text-sm">${item.name}</p>
+                                <p class="text-xs text-gray-400">Cant: ${item.quantity} x ${formatMoney(item.price)}</p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <p class="font-bold text-white text-lg">$${(item.price * item.quantity).toFixed(2)}</p>
-                            <button type="button" data-index="${index}" class="remove-item-btn text-red-500 hover:text-red-400">
-                                <i data-lucide="trash-2" class="w-5 h-5"></i>
+                        <div class="flex items-center space-x-3">
+                            <p class="font-bold text-yellow-500 text-sm">${formatMoney(item.price * item.quantity)}</p>
+                            <button type="button" class="remove-item-btn text-red-500 hover:text-red-400" data-index="${index}">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
                             </button>
                         </div>
                     `;
                     cartSummary.appendChild(itemEl);
                 });
 
-                totalPriceEl.textContent = `$${total.toFixed(2)} MXN`;
+                totalPriceEl.textContent = formatMoney(total);
                 totalContainer.style.display = 'block';
-                
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             }
-            
-            updateCartSummary();
 
-            // Delegación de eventos para botones de eliminar
+            // Eliminar del carrito
             cartSummary.addEventListener('click', (e) => {
-                const removeBtn = e.target.closest('.remove-item-btn');
-                if (removeBtn) {
-                    const index = parseInt(removeBtn.dataset.index);
-                    cart.splice(index, 1);
+                const btn = e.target.closest('.remove-item-btn');
+                if (btn) {
+                    cart.splice(parseInt(btn.dataset.index), 1);
                     updateCartSummary();
                 }
             });
 
-            // --- Lógica de Vista Previa de Imagen ---
-            function setupImagePreview(inputId, previewId) {
+            // --- NUEVA LÓGICA DE UPLOAD (GRAFICA) ---
+            function setupCustomUpload(boxId, inputId, placeholderId, previewContainerId, previewImgId, changeBtnId) {
+                const box = document.getElementById(boxId);
                 const input = document.getElementById(inputId);
-                const preview = document.getElementById(previewId);
+                const placeholder = document.getElementById(placeholderId);
+                const previewContainer = document.getElementById(previewContainerId);
+                const previewImg = document.getElementById(previewImgId);
+                const changeBtn = document.getElementById(changeBtnId);
+
+                // Click en la caja dispara el input
+                box.addEventListener('click', () => {
+                    input.click();
+                });
+
+                // Evitar que el click en "Cambiar" dispare la caja dos veces
+                changeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    input.click();
+                });
 
                 input.addEventListener('change', () => {
-                    const file = input.files[0];
-                    if (file) {
+                    if (input.files && input.files[0]) {
                         const reader = new FileReader();
                         reader.onload = (e) => {
-                            preview.src = e.target.result;
-                            preview.style.display = 'block';
-                        };
-                        reader.readAsDataURL(file);
-                    } else {
-                        preview.src = '';
-                        preview.style.display = 'none';
+                            previewImg.src = e.target.result;
+                            placeholder.style.display = 'none';
+                            previewContainer.style.display = 'block';
+                            // Estilo de éxito
+                            box.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+                            box.style.backgroundColor = 'rgba(34, 197, 94, 0.05)';
+                        }
+                        reader.readAsDataURL(input.files[0]);
                     }
                 });
             }
-            setupImagePreview('comprobante-pago', 'preview-pago');
-            setupImagePreview('comprobante-apartado', 'preview-apartado');
 
+            // Inicializar Uploaders
+            setupCustomUpload(
+                'upload-box-pago', 'comprobante-pago', 'upload-placeholder-pago', 
+                'preview-container-pago', 'preview-img-pago', 'change-file-pago'
+            );
+            setupCustomUpload(
+                'upload-box-apartado', 'comprobante-apartado', 'upload-placeholder-apartado', 
+                'preview-container-apartado', 'preview-img-apartado', 'change-file-apartado'
+            );
 
-            // --- Validación y Envío de Formularios ---
-
-            function validateEmailMatch(emailId, confirmEmailId, errorEl) {
-                const email = document.getElementById(emailId);
-                const confirmEmail = document.getElementById(confirmEmailId);
-                if (email.value !== confirmEmail.value) {
-                    errorEl.textContent = "Los correos no coinciden. Chécalos bien.";
+            // --- Validaciones y Envío ---
+            function validateEmail(id1, id2, errorEl) {
+                const e1 = document.getElementById(id1).value;
+                const e2 = document.getElementById(id2).value;
+                if (e1 !== e2) {
+                    errorEl.textContent = "Los correos no coinciden.";
                     errorEl.style.display = 'block';
-                    confirmEmail.focus();
                     return false;
                 }
-                errorEl.style.display = 'none';
                 return true;
             }
 
-            function validateFile(fileInput, errorEl) {
-                if (fileInput.files.length === 0) {
-                    errorEl.textContent = "Falta tu comprobante.";
+            function validateFile(id, errorEl) {
+                const input = document.getElementById(id);
+                if (input.files.length === 0) {
+                    errorEl.textContent = "Falta subir el comprobante (Foto o Screenshot).";
                     errorEl.style.display = 'block';
-                    fileInput.focus();
+                    // Scroll suave hacia el error
+                    errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     return false;
                 }
-
-                const file = fileInput.files[0];
-                const fileName = file.name.toLowerCase();
-                const allowedExts = ['.png', '.jpg', '.jpeg', '.heic'];
-                // FIX: Comprobar extensión O tipo MIME por si el archivo no tiene extensión
-                if (!allowedExts.some(ext => fileName.endsWith(ext)) && !file.type.startsWith('image/')) {
-                    errorEl.textContent = "Formato de archivo no válido. Solo se acepta PNG, JPG, JPEG, o HEIC.";
+                if (input.files[0].size > 8 * 1024 * 1024) {
+                    errorEl.textContent = "Archivo muy pesado (Máx 8MB). Intenta con una captura de pantalla.";
                     errorEl.style.display = 'block';
-                    fileInput.focus();
                     return false;
                 }
-
-                // FIX: Eliminar la declaración duplicada de maxSize. Dejar solo la de 8MB.
-                const maxSize = 8 * 1024 * 1024; // 8MB (REDUCIDO DE 15MB)
-                if (file.size > maxSize) {
-                    errorEl.textContent = "El archivo es muy pesado (Máx 8MB). Toma una screenshot de tu foto y súbela para bajar el tamaño fácilmente."; // Mensaje actualizado
-                    errorEl.style.display = 'block';
-                    fileInput.focus();
-                    return false;
-                }
-
-                errorEl.style.display = 'none';
                 return true;
             }
 
-            // --- Muestra el estado de carga en un botón. ---
-            // FIX: Función de carga genérica que oculta/muestra texto y spinner
-            function setButtonLoading(button, isLoading) {
-                const textEl = button.querySelector('.button-text');
-                const spinnerEl = button.querySelector('.loading-spinner');
-
-                if (isLoading) {
-                    button.disabled = true;
-                    if (textEl) textEl.style.display = 'none';
-                    if (spinnerEl) spinnerEl.style.display = 'block';
+            function setLoading(btn, loading) {
+                const txt = btn.querySelector('.button-text');
+                const spin = btn.querySelector('.loading-spinner');
+                btn.disabled = loading;
+                if (loading) {
+                    txt.style.display = 'none';
+                    spin.style.display = 'block';
                 } else {
-                    button.disabled = false;
-                    if (textEl) textEl.style.display = 'inline-flex'; // Usar inline-flex para centrar icono y texto
-                    if (spinnerEl) spinnerEl.style.display = 'none';
-                    // No es necesario recrear iconos, ya que nunca se eliminaron
+                    txt.style.display = 'inline-flex';
+                    spin.style.display = 'none';
                 }
             }
 
-
-            // Envío del Formulario de PAGO
-            formPago.addEventListener('submit', async (e) => {
+            // ENVÍO DE PAGO
+            document.getElementById('form-pago').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const errorEl = document.getElementById('error-message-pago');
-                const submitButton = formPago.querySelector('.submit-button');
                 errorEl.style.display = 'none';
 
-                if (!validateEmailMatch('email-pago', 'confirm-email-pago', errorEl)) return;
+                if (!validateEmail('email-pago', 'confirm-email-pago', errorEl)) return;
                 if (cart.length === 0) {
-                    errorEl.textContent = "Debes agregar al menos una gorra a tu pedido.";
+                    errorEl.textContent = "Haz clic en los productos para agregarlos al carrito.";
                     errorEl.style.display = 'block';
-                    hatSelect.focus();
                     return;
                 }
-                if (!validateFile(document.getElementById('comprobante-pago'), errorEl)) return;
+                if (!validateFile('comprobante-pago', errorEl)) return;
 
-                setButtonLoading(submitButton, true);
+                const btn = e.target.querySelector('.submit-button');
+                setLoading(btn, true);
 
                 try {
-                    const firstHatName = cart[0].name;
-                    const orderNumber = generateOrderNumber(firstHatName, 'P');
+                    // CONSTRUCCIÓN DE LA DIRECCIÓN
+                    const calle = document.getElementById('addr-calle').value;
+                    const ext = document.getElementById('addr-ext').value;
+                    const int = document.getElementById('addr-int').value;
+                    const col = document.getElementById('addr-colonia').value;
+                    const cp = document.getElementById('addr-cp').value;
+                    const ciudad = document.getElementById('addr-ciudad').value;
+                    const estado = document.getElementById('addr-estado').value;
                     
-                    const formData = new FormData();
-                    formData.append('tipo_de_pago', 'PAGO_COMPLETO');
-                    formData.append('orden', orderNumber);
-                    formData.append('nombre', document.getElementById('nombre-pago').value);
-                    // Limpiamos el '@' del instagram si el usuario lo puso
-                    const instagramPago = document.getElementById('instagram-pago').value.replace('@', '');
-                    formData.append('instagram', instagramPago);
-                    formData.append('email', document.getElementById('email-pago').value);
-                    formData.append('telefono', document.getElementById('telefono-pago').value);
-                    formData.append('direccion', document.getElementById('direccion-pago').value);
-                    formData.append('pedido', cart.map(item => `${item.name} (x${item.quantity})`).join(', '));
-                    formData.append('total', totalPriceEl.textContent);
-                    formData.append('hora_de_pago', new Date().toISOString());
-                    formData.append('comprobante', document.getElementById('comprobante-pago').files[0]);
+                    const direccionCompleta = `${calle} Num. ${ext} ${int ? 'Int. '+int : ''}, Col. ${col}, CP ${cp}, ${ciudad}, ${estado}`;
 
+                    const orderNum = generateOrderNumber(cart[0].name, 'P');
+                    const fd = new FormData();
+                    fd.append('tipo_de_pago', 'PAGO_COMPLETO');
+                    fd.append('orden', orderNum);
+                    fd.append('nombre', document.getElementById('nombre-pago').value);
+                    fd.append('instagram', document.getElementById('instagram-pago').value.replace('@',''));
+                    fd.append('email', document.getElementById('email-pago').value);
+                    fd.append('telefono', document.getElementById('telefono-pago').value);
+                    fd.append('direccion', direccionCompleta);
+                    fd.append('pedido', cart.map(i => `${i.name} (x${i.quantity})`).join(', '));
+                    fd.append('total', totalPriceEl.textContent);
+                    fd.append('hora_de_pago', new Date().toISOString());
+                    fd.append('comprobante', document.getElementById('comprobante-pago').files[0]);
 
-                    const response = await fetch(webhookUrl, {
-                        method: 'POST',
-                        body: formData
-                    });
+                    const res = await fetch(webhookUrl, { method: 'POST', body: fd });
+                    if (!res.ok) throw new Error('Error al enviar');
 
-                    if (!response.ok) {
-                        throw new Error(`Error del servidor: ${response.statusText}`);
-                    }
+                    document.getElementById('success-order-number').textContent = orderNum;
+                    document.getElementById('success-modal').style.display = 'flex';
 
-                    console.log("Formulario de PAGO enviado exitosamente.");
-                    successOrderNumber.textContent = orderNumber;
-                    successModal.style.display = 'flex';
-                    setTimeout(() => {
-                        if (typeof lucide !== 'undefined') {
-                            lucide.createIcons();
-                        }
-                    }, 50);
-
-                } catch (error) {
-                    console.error("Error al enviar el formulario de PAGO (Probablemente CORS):", error);
-                    // FIX: Mensaje de error más específico para el usuario
-                    errorEl.textContent = "Error de red. No se pudo enviar tu orden (posiblemente un problema de CORS o conexión).";
+                } catch (err) {
+                    console.error(err);
+                    errorEl.textContent = "Hubo un problema de conexión. Intenta de nuevo.";
                     errorEl.style.display = 'block';
                 } finally {
-                    // FIX: Llamada simple a la función de carga
-                    setButtonLoading(submitButton, false);
+                    setLoading(btn, false);
                 }
             });
 
-            // Envío del Formulario de APARTADO
-            formApartado.addEventListener('submit', async (e) => {
+            // ENVÍO DE APARTADO
+            document.getElementById('form-apartado').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const errorEl = document.getElementById('error-message-apartado');
-                const submitButton = formApartado.querySelector('.submit-button');
                 errorEl.style.display = 'none';
 
-                if (!validateEmailMatch('email-apartado', 'confirm-email-apartado', errorEl)) return;
-
-                const gorraApartadaEl = document.getElementById('hat-select-apartado');
-                if (!gorraApartadaEl.value) {
-                    errorEl.textContent = "Debes seleccionar la gorra que vas a apartar.";
+                if (!validateEmail('email-apartado', 'confirm-email-apartado', errorEl)) return;
+                
+                // Validación con input oculto
+                const selectedId = document.getElementById('selected-hat-apartado-id').value;
+                if (!selectedId) {
+                    errorEl.textContent = "Selecciona qué vas a apartar (Haz clic en la imagen).";
                     errorEl.style.display = 'block';
-                    gorraApartadaEl.focus();
                     return;
                 }
                 
-                if (!validateFile(document.getElementById('comprobante-apartado'), errorEl)) return;
-                
-                setButtonLoading(submitButton, true);
+                if (!validateFile('comprobante-apartado', errorEl)) return;
+
+                const btn = e.target.querySelector('.submit-button');
+                setLoading(btn, true);
 
                 try {
-                    const gorraApartadaText = gorraApartadaEl.options[gorraApartadaEl.selectedIndex].text;
-                    const orderNumber = generateOrderNumber(gorraApartadaText, 'A');
+                    const hat = hatData.find(h => h.id == selectedId);
+                    const hatName = hat ? hat.name : "Desconocido";
 
-                    const formData = new FormData();
-                    formData.append('tipo_de_pago', 'APARTADO');
-                    formData.append('orden', orderNumber);
-                    formData.append('nombre', document.getElementById('nombre-apartado').value);
-                    // Limpiamos el '@' del instagram si el usuario lo puso
-                    const instagramApartado = document.getElementById('instagram-apartado').value.replace('@', '');
-                    formData.append('instagram', instagramApartado);
-                    formData.append('email', document.getElementById('email-apartado').value);
-                    formData.append('telefono', document.getElementById('telefono-apartado').value);
-                    formData.append('gorra_apartada', gorraApartadaText);
-                    formData.append('hora_de_pago', new Date().toISOString());
-                    formData.append('comprobante', document.getElementById('comprobante-apartado').files[0]);
+                    const orderNum = generateOrderNumber(hatName, 'A');
+                    const fd = new FormData();
+                    fd.append('tipo_de_pago', 'APARTADO');
+                    fd.append('orden', orderNum);
+                    fd.append('nombre', document.getElementById('nombre-apartado').value);
+                    fd.append('instagram', document.getElementById('instagram-apartado').value.replace('@',''));
+                    fd.append('email', document.getElementById('email-apartado').value);
+                    fd.append('telefono', document.getElementById('telefono-apartado').value);
+                    fd.append('gorra_apartada', hatName);
+                    fd.append('hora_de_pago', new Date().toISOString());
+                    fd.append('comprobante', document.getElementById('comprobante-apartado').files[0]);
 
+                    const res = await fetch(webhookUrl, { method: 'POST', body: fd });
+                    if (!res.ok) throw new Error('Error al enviar');
 
-                    const response = await fetch(webhookUrl, {
-                        method: 'POST',
-                        body: formData
-                    });
+                    document.getElementById('success-order-number').textContent = orderNum;
+                    document.getElementById('success-modal').style.display = 'flex';
 
-                    if (!response.ok) {
-                        throw new Error(`Error del servidor: ${response.statusText}`);
-                    }
-
-                    console.log("Formulario de APARTADO enviado exitosamente.");
-                    successOrderNumber.textContent = orderNumber;
-                    successModal.style.display = 'flex';
-                    setTimeout(() => {
-                        if (typeof lucide !== 'undefined') {
-                            lucide.createIcons();
-                        }
-                    }, 50);
-
-                } catch (error) {
-                    console.error("Error al enviar el formulario de APARTADO (Probablemente CORS):", error);
-                    // FIX: Mensaje de error más específico para el usuario
-                    errorEl.textContent = "Error de red. No se pudo enviar tu apartado (posiblemente un problema de CORS o conexión).";
+                } catch (err) {
+                    console.error(err);
+                    errorEl.textContent = "Error de conexión. Intenta de nuevo.";
                     errorEl.style.display = 'block';
                 } finally {
-                    // FIX: Llamada simple a la función de carga
-                    setButtonLoading(submitButton, false);
+                    setLoading(btn, false);
                 }
             });
 
-            // Cerrar modal de éxito y resetear
-            successCloseButton.addEventListener('click', () => {
-                successModal.style.display = 'none';
-                
-                formPago.reset();
-                formApartado.reset();
-                cart = [];
-                updateCartSummary();
-                document.getElementById('preview-pago').style.display = 'none';
-                document.getElementById('preview-apartado').style.display = 'none';
-                
-                // Resetear tabs al default
-                tabPagos.classList.add('active');
-                tabApartados.classList.remove('active');
-                contentPagos.style.display = 'block';
-                contentApartados.style.display = 'none';
+            // Cerrar Modal Success
+            document.getElementById('success-close-button').addEventListener('click', () => {
+                location.reload(); // Recargar para limpiar todo fresco
             });
-
         });
     </script>
     
-    <!-- OBS: Carga de Lucide Icons movida aquí para evitar bloqueo de renderizado --><script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </body>
 </html>
