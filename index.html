@@ -993,6 +993,21 @@
                     cartSummary.appendChild(itemEl);
                 });
 
+                // AGREGAR COSTO DE ENVÍO
+                const shippingCost = 200;
+                total += shippingCost;
+
+                const shippingEl = document.createElement('div');
+                shippingEl.className = 'flex items-center justify-between p-3 rounded-lg mb-2 border border-yellow-500/20 bg-yellow-500/5';
+                shippingEl.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="truck" class="w-5 h-5 text-yellow-500"></i>
+                        <span class="text-sm font-medium text-gray-300">Gastos de Envío</span>
+                    </div>
+                    <span class="font-bold text-white text-sm">${formatMoney(shippingCost)}</span>
+                `;
+                cartSummary.appendChild(shippingEl);
+
                 totalPriceEl.textContent = formatMoney(total);
                 totalContainer.style.display = 'block';
                 if (typeof lucide !== 'undefined') lucide.createIcons();
